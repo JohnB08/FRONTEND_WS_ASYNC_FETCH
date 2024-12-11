@@ -5,7 +5,8 @@ const fetchFunc = async (url) => {
   const result = await response.json();
   return result;
 };
-/* Vi bruker vår fetch funksjon for å hente inn json filen som inneholder lat og long koordinater for alle byer i verden med over 500 innbyggere.  */
+/* Vi bruker vår fetch funksjon for å hente inn data fra json filen som inneholder lat og long koordinater for alle byer i verden med over 500 innbyggere. 
+Vi skal bruke disse lat og long koordinatene for å finne data om en lokasjon fra apiet vårt. */
 let cities = await fetchFunc("./cities.json");
 /* for å gjøre datasettet lettere å søke i, bruker vi Object.groupBy metoden for å gruppere hver by i landet det tilhører.
 Da ender vi opp med et object som ser ish sånn ut: 
@@ -14,6 +15,7 @@ Da ender vi opp med et object som ser ish sånn ut:
     NO: [alle byene som er knyttet til NO]
     SE: [alle byene knyttet til SE]}
     ...
+}
 */
 let citiesGroupedByCountry = Object.groupBy(cities, ({ country }) => country);
 /* Nå blir det lett for oss, å lage selects som lar brukeren vår velge først et land, så en by i hvert land. */
