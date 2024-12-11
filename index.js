@@ -1,4 +1,5 @@
-/* Vi lager en generisk fetch funksjon, som kan brukes å hente data.  */
+/* Vi lager en generisk fetch funksjon, som kan brukes å hente data. den tar inn en url som parameter.
+For å fortelle JS at denne funksjonen må "vente" på et svar, gjør vi den async. */
 const fetchFunc = async (url) => {
   const response = await fetch(url);
   const result = await response.json();
