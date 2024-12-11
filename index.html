@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Vi gjør vår script om til module, for å si til html, for å tillate en del ekstra funksjonalitet i JS filen vår.
+     Dette endrer måten html filen "tolker" vår js fil på. Til vanlig "tolkes" den som en js filtype som heter CommonJS. 
+     Men ved å skifte til module, tolkes filen nå som en ESModule type. -->
+    <script src="index.js" type="module" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Select a place to get info from.</h1>
+    <div class="inputContainer">
+      <label for="countrySelect">Please select a country</label>
+      <select name="countrySelect" id="countrySelect"></select>
+      <label for="citySelect">Please select a city</label>
+      <select name="citySelect" id="citySelect"></select>
+      <ul class="forecastOutput"></ul>
+    </div>
+  </body>
+</html>
