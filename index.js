@@ -37,10 +37,11 @@ Object.keys(citiesGroupedByCountry).forEach((country) => {
 dvs at en bruker velger en ny option.
 Vi henter så ut alle byene bruker velger, og lager en option for hver by i citiesSelect slik at en bruker skal kunne velge en by de vil ha forecast fra. */
 countrySelect.addEventListener("change", (event) => {
+  /* hver event har en "target", dvs elementet som førte til at eventet ble trigret. i vårt tilfellet er det en option. 
+    Vi kan ta hente ut value fra dette event targetet og bruke det.*/
   const chosenCountry = event.target.value;
   const chosenCities = citiesGroupedByCountry[chosenCountry];
   for (let i = 0; i < citySelect.childNodes.length; i++) {
-    console.log(citySelect.childNodes[i]);
     citySelect.childNodes[i].remove();
   }
   chosenCities.forEach((city) => {
@@ -61,7 +62,6 @@ countrySelect.addEventListener("change", (event) => {
 /* Vi lager en eventlistener til citySelect, hvor vi henter ut queryparameterene for den valgte byen, og gjør et søk mot auroraapien basert på disse.
 Vi henter så ut forecasten fra svaret vi får, og lager en enkel <li> for hver value og appender det til vår forecastOutput <ul> */
 citySelect.addEventListener("change", async (event) => {
-  console.log(event.target.value);
   const baseApiUrl = "https://api.auroras.live/v1/?";
   const searchUrl = baseApiUrl + event.target.value;
   const response = await fetchFunc(searchUrl);
